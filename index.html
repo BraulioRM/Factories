@@ -1,0 +1,57 @@
+
+
+<!DOCTYPE html>
+<!-- inicia tu aplicación, que es el nombre de tu módulo, estas diciendo cargame este modulo-->
+<html lang= "es" ng-app="prac1">
+<head>
+	<meta charset="UTF-8">
+	<title> Practica1</title>
+
+</head>
+
+<!-- yo me voy a referir a mi controlador pracCtrl como first, es un alias, siempre debe de tener alias-->
+
+<body ng-controller="pracCtrl as first">
+<input type="text" ng-model="saludos">
+
+
+
+<h4>{{first.name}}</h4>
+<h4>{{first.age}}</h4>
+<h4>{{first.texto}}</h4>
+<h4>{{first.number}}</h4>
+<h4>{{first.number}}</h4>
+
+<ul>
+	<li ng-repeat="user in first.user| orderBy:'age'" ng-if="user.age<50">
+	{{user.name}} tiene {{user.age}}
+	</li>
+</ul>
+
+<button ng-click="first.click()">Clickeame morro</button>
+
+<!-- $ accede directamente al archivo-->
+<input type="text" ng-model="search.name">
+</input>
+
+<table style="border:1px solid blue;" border="1">
+	<tr ng-repeat="user in first.users| filter:search">
+		<td>{{$index+1}}</td>
+		<td>{{user.name}}</td>
+		<td>{{user.age}}</td>
+		<td>{{user.pais}}</td>
+		<td><button ng-click="first.ruco(user)">click me baby
+			
+		</button></td>
+		
+
+	</tr>
+</table>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<!--enlaza html(angular) con js(modulo)-->
+<script src="app.js"></script>
+
+</body>
+</html>
